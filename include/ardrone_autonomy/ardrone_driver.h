@@ -39,6 +39,8 @@ class ARDroneDriver;
 #include <nav_msgs/Odometry.h>
 #include <ardrone_autonomy/Navdata.h>
 #include <ardrone_autonomy/ardrone_sdk.h>
+#undef max
+#undef min
 
 // C/C++
 #include <stdint.h>

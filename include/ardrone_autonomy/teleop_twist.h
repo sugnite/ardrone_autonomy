@@ -33,6 +33,8 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 #include <ardrone_autonomy/LedAnim.h>
 #include <ardrone_autonomy/FlightAnim.h>
 #include <ardrone_autonomy/RecordEnable.h>
+#undef max
+#undef min
 
 #define _EPS 1.0e-6
 

@@ -63,6 +63,8 @@ extern "C"
 #include <ardrone_tool/Video/video_stage.h>
 #include <ardrone_tool/Video/video_recorder_pipeline.h>
 #include <ardrone_tool/Video/video_stage_latency_estimation.h>
+#undef max
+#undef min
 
   extern video_decoder_config_t vec;
 }

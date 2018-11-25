@@ -63,6 +63,8 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 #include <ardrone_autonomy/vector21.h>
 #include <ardrone_autonomy/matrix33.h>
 #endif
+#undef max
+#undef min
 
 #ifdef NAVDATA_STRUCTS_HEADER_PUBLIC
 	void PublishNavdataTypes(const navdata_unpacked_t &n, const ros::Time &received);
@@ -413,7 +415,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_demo_msg.header.stamp = received;
       navdata_demo_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_demo.tag;
 			uint16_t m;
 			m = c;
@@ -421,7 +423,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_demo_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_demo.size;
 			uint16_t m;
 			m = c;
@@ -429,7 +431,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_demo_msg.size = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_demo.ctrl_state;
 			uint32_t m;
 			m = c;
@@ -437,7 +439,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_demo_msg.ctrl_state = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_demo.vbat_flying_percentage;
 			uint32_t m;
 			m = c;
@@ -445,7 +447,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_demo_msg.vbat_flying_percentage = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_demo.theta;
 			float32_t m;
 			m = c;
@@ -453,7 +455,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_demo_msg.theta = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_demo.phi;
 			float32_t m;
 			m = c;
@@ -461,7 +463,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_demo_msg.phi = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_demo.psi;
 			float32_t m;
 			m = c;
@@ -469,7 +471,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_demo_msg.psi = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_demo.altitude;
 			int32_t m;
 			m = c;
@@ -477,7 +479,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_demo_msg.altitude = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_demo.vx;
 			float32_t m;
 			m = c;
@@ -485,7 +487,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_demo_msg.vx = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_demo.vy;
 			float32_t m;
 			m = c;
@@ -493,7 +495,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_demo_msg.vy = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_demo.vz;
 			float32_t m;
 			m = c;
@@ -501,7 +503,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_demo_msg.vz = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_demo.num_frames;
 			uint32_t m;
 			m = c;
@@ -509,7 +511,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_demo_msg.num_frames = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_demo.detection_camera_type;
 			uint32_t m;
 			m = c;
@@ -528,7 +530,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_time_msg.header.stamp = received;
       navdata_time_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_time.tag;
 			uint16_t m;
 			m = c;
@@ -536,7 +538,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_time_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_time.size;
 			uint16_t m;
 			m = c;
@@ -544,7 +546,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_time_msg.size = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_time.time;
 			uint32_t m;
 			m = c;
@@ -563,7 +565,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_raw_measures_msg.header.stamp = received;
       navdata_raw_measures_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_raw_measures.tag;
 			uint16_t m;
 			m = c;
@@ -571,7 +573,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_raw_measures.size;
 			uint16_t m;
 			m = c;
@@ -581,25 +583,25 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 
 			navdata_raw_measures_msg.raw_gyros.clear();
 			for(int i=0; i<NB_GYROS; i++)
-			{				
+			{
 			int16_t c = n.navdata_raw_measures.raw_gyros[i];
 			int16_t m;
 			m = c;
 
 				navdata_raw_measures_msg.raw_gyros.push_back(m);
 			}
-			
+
 			navdata_raw_measures_msg.raw_gyros_110.clear();
 			for(int i=0; i<2; i++)
-			{				
+			{
 			int16_t c = n.navdata_raw_measures.raw_gyros_110[i];
 			int16_t m;
 			m = c;
 
 				navdata_raw_measures_msg.raw_gyros_110.push_back(m);
 			}
-			
-			{				
+
+			{
 			uint32_t c = n.navdata_raw_measures.vbat_raw;
 			uint32_t m;
 			m = c;
@@ -607,7 +609,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.vbat_raw = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_raw_measures.us_debut_echo;
 			uint16_t m;
 			m = c;
@@ -615,7 +617,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.us_debut_echo = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_raw_measures.us_fin_echo;
 			uint16_t m;
 			m = c;
@@ -623,7 +625,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.us_fin_echo = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_raw_measures.us_association_echo;
 			uint16_t m;
 			m = c;
@@ -631,7 +633,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.us_association_echo = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_raw_measures.us_distance_echo;
 			uint16_t m;
 			m = c;
@@ -639,7 +641,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.us_distance_echo = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_raw_measures.us_courbe_temps;
 			uint16_t m;
 			m = c;
@@ -647,7 +649,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.us_courbe_temps = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_raw_measures.us_courbe_valeur;
 			uint16_t m;
 			m = c;
@@ -655,7 +657,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.us_courbe_valeur = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_raw_measures.us_courbe_ref;
 			uint16_t m;
 			m = c;
@@ -663,7 +665,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.us_courbe_ref = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_raw_measures.flag_echo_ini;
 			uint16_t m;
 			m = c;
@@ -671,7 +673,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.flag_echo_ini = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_raw_measures.nb_echo;
 			uint16_t m;
 			m = c;
@@ -679,7 +681,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.nb_echo = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_raw_measures.sum_echo;
 			uint32_t m;
 			m = c;
@@ -687,7 +689,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.sum_echo = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_raw_measures.alt_temp_raw;
 			int32_t m;
 			m = c;
@@ -695,7 +697,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_raw_measures_msg.alt_temp_raw = m;
 			}
 
-			{				
+			{
 			int16_t c = n.navdata_raw_measures.gradient;
 			int16_t m;
 			m = c;
@@ -714,7 +716,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_phys_measures_msg.header.stamp = received;
       navdata_phys_measures_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_phys_measures.tag;
 			uint16_t m;
 			m = c;
@@ -722,7 +724,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_phys_measures_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_phys_measures.size;
 			uint16_t m;
 			m = c;
@@ -730,7 +732,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_phys_measures_msg.size = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_phys_measures.accs_temp;
 			float32_t m;
 			m = c;
@@ -738,7 +740,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_phys_measures_msg.accs_temp = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_phys_measures.gyro_temp;
 			uint16_t m;
 			m = c;
@@ -748,25 +750,25 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 
 			navdata_phys_measures_msg.phys_accs.clear();
 			for(int i=0; i<NB_ACCS; i++)
-			{				
+			{
 			float32_t c = n.navdata_phys_measures.phys_accs[i];
 			float32_t m;
 			m = c;
 
 				navdata_phys_measures_msg.phys_accs.push_back(m);
 			}
-			
+
 			navdata_phys_measures_msg.phys_gyros.clear();
 			for(int i=0; i<NB_GYROS; i++)
-			{				
+			{
 			float32_t c = n.navdata_phys_measures.phys_gyros[i];
 			float32_t m;
 			m = c;
 
 				navdata_phys_measures_msg.phys_gyros.push_back(m);
 			}
-			
-			{				
+
+			{
 			uint32_t c = n.navdata_phys_measures.alim3V3;
 			uint32_t m;
 			m = c;
@@ -774,7 +776,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_phys_measures_msg.alim3V3 = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_phys_measures.vrefEpson;
 			uint32_t m;
 			m = c;
@@ -782,7 +784,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_phys_measures_msg.vrefEpson = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_phys_measures.vrefIDG;
 			uint32_t m;
 			m = c;
@@ -801,7 +803,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_gyros_offsets_msg.header.stamp = received;
       navdata_gyros_offsets_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_gyros_offsets.tag;
 			uint16_t m;
 			m = c;
@@ -809,7 +811,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_gyros_offsets_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_gyros_offsets.size;
 			uint16_t m;
 			m = c;
@@ -819,14 +821,14 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 
 			navdata_gyros_offsets_msg.offset_g.clear();
 			for(int i=0; i<NB_GYROS; i++)
-			{				
+			{
 			float32_t c = n.navdata_gyros_offsets.offset_g[i];
 			float32_t m;
 			m = c;
 
 				navdata_gyros_offsets_msg.offset_g.push_back(m);
 			}
-			
+
 			pub_navdata_gyros_offsets.publish(navdata_gyros_offsets_msg);
 		}
 
@@ -838,7 +840,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_euler_angles_msg.header.stamp = received;
       navdata_euler_angles_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_euler_angles.tag;
 			uint16_t m;
 			m = c;
@@ -846,7 +848,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_euler_angles_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_euler_angles.size;
 			uint16_t m;
 			m = c;
@@ -854,7 +856,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_euler_angles_msg.size = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_euler_angles.theta_a;
 			float32_t m;
 			m = c;
@@ -862,7 +864,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_euler_angles_msg.theta_a = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_euler_angles.phi_a;
 			float32_t m;
 			m = c;
@@ -881,7 +883,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_references_msg.header.stamp = received;
       navdata_references_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_references.tag;
 			uint16_t m;
 			m = c;
@@ -889,7 +891,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_references.size;
 			uint16_t m;
 			m = c;
@@ -897,7 +899,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.size = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_references.ref_theta;
 			int32_t m;
 			m = c;
@@ -905,7 +907,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ref_theta = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_references.ref_phi;
 			int32_t m;
 			m = c;
@@ -913,7 +915,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ref_phi = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_references.ref_theta_I;
 			int32_t m;
 			m = c;
@@ -921,7 +923,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ref_theta_I = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_references.ref_phi_I;
 			int32_t m;
 			m = c;
@@ -929,7 +931,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ref_phi_I = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_references.ref_pitch;
 			int32_t m;
 			m = c;
@@ -937,7 +939,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ref_pitch = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_references.ref_roll;
 			int32_t m;
 			m = c;
@@ -945,7 +947,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ref_roll = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_references.ref_yaw;
 			int32_t m;
 			m = c;
@@ -953,7 +955,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ref_yaw = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_references.ref_psi;
 			int32_t m;
 			m = c;
@@ -961,7 +963,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ref_psi = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_references.vx_ref;
 			float32_t m;
 			m = c;
@@ -969,7 +971,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.vx_ref = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_references.vy_ref;
 			float32_t m;
 			m = c;
@@ -977,7 +979,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.vy_ref = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_references.theta_mod;
 			float32_t m;
 			m = c;
@@ -985,7 +987,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.theta_mod = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_references.phi_mod;
 			float32_t m;
 			m = c;
@@ -993,7 +995,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.phi_mod = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_references.k_v_x;
 			float32_t m;
 			m = c;
@@ -1001,7 +1003,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.k_v_x = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_references.k_v_y;
 			float32_t m;
 			m = c;
@@ -1009,7 +1011,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.k_v_y = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_references.k_mode;
 			uint32_t m;
 			m = c;
@@ -1017,7 +1019,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.k_mode = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_references.ui_time;
 			float32_t m;
 			m = c;
@@ -1025,7 +1027,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ui_time = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_references.ui_theta;
 			float32_t m;
 			m = c;
@@ -1033,7 +1035,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ui_theta = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_references.ui_phi;
 			float32_t m;
 			m = c;
@@ -1041,7 +1043,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ui_phi = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_references.ui_psi;
 			float32_t m;
 			m = c;
@@ -1049,7 +1051,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ui_psi = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_references.ui_psi_accuracy;
 			float32_t m;
 			m = c;
@@ -1057,7 +1059,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_references_msg.ui_psi_accuracy = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_references.ui_seq;
 			int32_t m;
 			m = c;
@@ -1076,7 +1078,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_trims_msg.header.stamp = received;
       navdata_trims_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_trims.tag;
 			uint16_t m;
 			m = c;
@@ -1084,7 +1086,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_trims_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_trims.size;
 			uint16_t m;
 			m = c;
@@ -1092,7 +1094,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_trims_msg.size = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_trims.angular_rates_trim_r;
 			float32_t m;
 			m = c;
@@ -1100,7 +1102,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_trims_msg.angular_rates_trim_r = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_trims.euler_angles_trim_theta;
 			float32_t m;
 			m = c;
@@ -1108,7 +1110,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_trims_msg.euler_angles_trim_theta = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_trims.euler_angles_trim_phi;
 			float32_t m;
 			m = c;
@@ -1127,7 +1129,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_rc_references_msg.header.stamp = received;
       navdata_rc_references_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_rc_references.tag;
 			uint16_t m;
 			m = c;
@@ -1135,7 +1137,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_rc_references_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_rc_references.size;
 			uint16_t m;
 			m = c;
@@ -1143,7 +1145,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_rc_references_msg.size = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_rc_references.rc_ref_pitch;
 			int32_t m;
 			m = c;
@@ -1151,7 +1153,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_rc_references_msg.rc_ref_pitch = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_rc_references.rc_ref_roll;
 			int32_t m;
 			m = c;
@@ -1159,7 +1161,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_rc_references_msg.rc_ref_roll = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_rc_references.rc_ref_yaw;
 			int32_t m;
 			m = c;
@@ -1167,7 +1169,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_rc_references_msg.rc_ref_yaw = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_rc_references.rc_ref_gaz;
 			int32_t m;
 			m = c;
@@ -1175,7 +1177,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_rc_references_msg.rc_ref_gaz = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_rc_references.rc_ref_ag;
 			int32_t m;
 			m = c;
@@ -1194,7 +1196,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_pwm_msg.header.stamp = received;
       navdata_pwm_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_pwm.tag;
 			uint16_t m;
 			m = c;
@@ -1202,7 +1204,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_pwm.size;
 			uint16_t m;
 			m = c;
@@ -1210,7 +1212,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.size = m;
 			}
 
-			{				
+			{
 			uint8_t c = n.navdata_pwm.motor1;
 			uint8_t m;
 			m = c;
@@ -1218,7 +1220,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.motor1 = m;
 			}
 
-			{				
+			{
 			uint8_t c = n.navdata_pwm.motor2;
 			uint8_t m;
 			m = c;
@@ -1226,7 +1228,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.motor2 = m;
 			}
 
-			{				
+			{
 			uint8_t c = n.navdata_pwm.motor3;
 			uint8_t m;
 			m = c;
@@ -1234,7 +1236,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.motor3 = m;
 			}
 
-			{				
+			{
 			uint8_t c = n.navdata_pwm.motor4;
 			uint8_t m;
 			m = c;
@@ -1242,7 +1244,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.motor4 = m;
 			}
 
-			{				
+			{
 			uint8_t c = n.navdata_pwm.sat_motor1;
 			uint8_t m;
 			m = c;
@@ -1250,7 +1252,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.sat_motor1 = m;
 			}
 
-			{				
+			{
 			uint8_t c = n.navdata_pwm.sat_motor2;
 			uint8_t m;
 			m = c;
@@ -1258,7 +1260,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.sat_motor2 = m;
 			}
 
-			{				
+			{
 			uint8_t c = n.navdata_pwm.sat_motor3;
 			uint8_t m;
 			m = c;
@@ -1266,7 +1268,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.sat_motor3 = m;
 			}
 
-			{				
+			{
 			uint8_t c = n.navdata_pwm.sat_motor4;
 			uint8_t m;
 			m = c;
@@ -1274,7 +1276,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.sat_motor4 = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_pwm.gaz_feed_forward;
 			float32_t m;
 			m = c;
@@ -1282,7 +1284,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.gaz_feed_forward = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_pwm.gaz_altitude;
 			float32_t m;
 			m = c;
@@ -1290,7 +1292,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.gaz_altitude = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_pwm.altitude_integral;
 			float32_t m;
 			m = c;
@@ -1298,7 +1300,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.altitude_integral = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_pwm.vz_ref;
 			float32_t m;
 			m = c;
@@ -1306,7 +1308,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.vz_ref = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_pwm.u_pitch;
 			int32_t m;
 			m = c;
@@ -1314,7 +1316,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.u_pitch = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_pwm.u_roll;
 			int32_t m;
 			m = c;
@@ -1322,7 +1324,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.u_roll = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_pwm.u_yaw;
 			int32_t m;
 			m = c;
@@ -1330,7 +1332,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.u_yaw = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_pwm.yaw_u_I;
 			float32_t m;
 			m = c;
@@ -1338,7 +1340,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.yaw_u_I = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_pwm.u_pitch_planif;
 			int32_t m;
 			m = c;
@@ -1346,7 +1348,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.u_pitch_planif = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_pwm.u_roll_planif;
 			int32_t m;
 			m = c;
@@ -1354,7 +1356,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.u_roll_planif = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_pwm.u_yaw_planif;
 			int32_t m;
 			m = c;
@@ -1362,7 +1364,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.u_yaw_planif = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_pwm.u_gaz_planif;
 			float32_t m;
 			m = c;
@@ -1370,7 +1372,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.u_gaz_planif = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_pwm.current_motor1;
 			uint16_t m;
 			m = c;
@@ -1378,7 +1380,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.current_motor1 = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_pwm.current_motor2;
 			uint16_t m;
 			m = c;
@@ -1386,7 +1388,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.current_motor2 = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_pwm.current_motor3;
 			uint16_t m;
 			m = c;
@@ -1394,7 +1396,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.current_motor3 = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_pwm.current_motor4;
 			uint16_t m;
 			m = c;
@@ -1402,7 +1404,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pwm_msg.current_motor4 = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_pwm.altitude_der;
 			float32_t m;
 			m = c;
@@ -1421,7 +1423,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_altitude_msg.header.stamp = received;
       navdata_altitude_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_altitude.tag;
 			uint16_t m;
 			m = c;
@@ -1429,7 +1431,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_altitude_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_altitude.size;
 			uint16_t m;
 			m = c;
@@ -1437,7 +1439,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_altitude_msg.size = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_altitude.altitude_vision;
 			int32_t m;
 			m = c;
@@ -1445,7 +1447,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_altitude_msg.altitude_vision = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_altitude.altitude_vz;
 			float32_t m;
 			m = c;
@@ -1453,7 +1455,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_altitude_msg.altitude_vz = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_altitude.altitude_ref;
 			int32_t m;
 			m = c;
@@ -1461,7 +1463,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_altitude_msg.altitude_ref = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_altitude.altitude_raw;
 			int32_t m;
 			m = c;
@@ -1469,7 +1471,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_altitude_msg.altitude_raw = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_altitude.obs_accZ;
 			float32_t m;
 			m = c;
@@ -1477,7 +1479,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_altitude_msg.obs_accZ = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_altitude.obs_alt;
 			float32_t m;
 			m = c;
@@ -1485,7 +1487,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_altitude_msg.obs_alt = m;
 			}
 
-			{				
+			{
 			vector31_t c = n.navdata_altitude.obs_x;
 			ardrone_autonomy::vector31 m;
 			m.x = c.x;
@@ -1495,7 +1497,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_altitude_msg.obs_x = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_altitude.obs_state;
 			uint32_t m;
 			m = c;
@@ -1503,7 +1505,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_altitude_msg.obs_state = m;
 			}
 
-			{				
+			{
 			vector21_t c = n.navdata_altitude.est_vb;
 			ardrone_autonomy::vector21 m;
 			m.x = c.x;
@@ -1512,7 +1514,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_altitude_msg.est_vb = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_altitude.est_state;
 			uint32_t m;
 			m = c;
@@ -1531,7 +1533,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_vision_raw_msg.header.stamp = received;
       navdata_vision_raw_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_vision_raw.tag;
 			uint16_t m;
 			m = c;
@@ -1539,7 +1541,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_raw_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_vision_raw.size;
 			uint16_t m;
 			m = c;
@@ -1547,7 +1549,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_raw_msg.size = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision_raw.vision_tx_raw;
 			float32_t m;
 			m = c;
@@ -1555,7 +1557,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_raw_msg.vision_tx_raw = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision_raw.vision_ty_raw;
 			float32_t m;
 			m = c;
@@ -1563,7 +1565,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_raw_msg.vision_ty_raw = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision_raw.vision_tz_raw;
 			float32_t m;
 			m = c;
@@ -1582,7 +1584,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_vision_of_msg.header.stamp = received;
       navdata_vision_of_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_vision_of.tag;
 			uint16_t m;
 			m = c;
@@ -1590,7 +1592,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_of_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_vision_of.size;
 			uint16_t m;
 			m = c;
@@ -1600,24 +1602,24 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 
 			navdata_vision_of_msg.of_dx.clear();
 			for(int i=0; i<5; i++)
-			{				
+			{
 			float32_t c = n.navdata_vision_of.of_dx[i];
 			float32_t m;
 			m = c;
 
 				navdata_vision_of_msg.of_dx.push_back(m);
 			}
-			
+
 			navdata_vision_of_msg.of_dy.clear();
 			for(int i=0; i<5; i++)
-			{				
+			{
 			float32_t c = n.navdata_vision_of.of_dy[i];
 			float32_t m;
 			m = c;
 
 				navdata_vision_of_msg.of_dy.push_back(m);
 			}
-			
+
 			pub_navdata_vision_of.publish(navdata_vision_of_msg);
 		}
 
@@ -1629,7 +1631,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_vision_msg.header.stamp = received;
       navdata_vision_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_vision.tag;
 			uint16_t m;
 			m = c;
@@ -1637,7 +1639,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_vision.size;
 			uint16_t m;
 			m = c;
@@ -1645,7 +1647,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.size = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_vision.vision_state;
 			uint32_t m;
 			m = c;
@@ -1653,7 +1655,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.vision_state = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_vision.vision_misc;
 			int32_t m;
 			m = c;
@@ -1661,7 +1663,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.vision_misc = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision.vision_phi_trim;
 			float32_t m;
 			m = c;
@@ -1669,7 +1671,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.vision_phi_trim = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision.vision_phi_ref_prop;
 			float32_t m;
 			m = c;
@@ -1677,7 +1679,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.vision_phi_ref_prop = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision.vision_theta_trim;
 			float32_t m;
 			m = c;
@@ -1685,7 +1687,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.vision_theta_trim = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision.vision_theta_ref_prop;
 			float32_t m;
 			m = c;
@@ -1693,7 +1695,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.vision_theta_ref_prop = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_vision.new_raw_picture;
 			int32_t m;
 			m = c;
@@ -1701,7 +1703,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.new_raw_picture = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision.theta_capture;
 			float32_t m;
 			m = c;
@@ -1709,7 +1711,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.theta_capture = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision.phi_capture;
 			float32_t m;
 			m = c;
@@ -1717,7 +1719,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.phi_capture = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision.psi_capture;
 			float32_t m;
 			m = c;
@@ -1725,7 +1727,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.psi_capture = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_vision.altitude_capture;
 			int32_t m;
 			m = c;
@@ -1733,7 +1735,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.altitude_capture = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_vision.time_capture;
 			uint32_t m;
 			m = c;
@@ -1741,7 +1743,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.time_capture = m;
 			}
 
-			{				
+			{
 			velocities_t c = n.navdata_vision.body_v;
 			ardrone_autonomy::vector31 m;
 			m.x = c.x;
@@ -1751,7 +1753,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.body_v = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision.delta_phi;
 			float32_t m;
 			m = c;
@@ -1759,7 +1761,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.delta_phi = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision.delta_theta;
 			float32_t m;
 			m = c;
@@ -1767,7 +1769,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.delta_theta = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision.delta_psi;
 			float32_t m;
 			m = c;
@@ -1775,7 +1777,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.delta_psi = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_vision.gold_defined;
 			uint32_t m;
 			m = c;
@@ -1783,7 +1785,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.gold_defined = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_vision.gold_reset;
 			uint32_t m;
 			m = c;
@@ -1791,7 +1793,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.gold_reset = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision.gold_x;
 			float32_t m;
 			m = c;
@@ -1799,7 +1801,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_msg.gold_x = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision.gold_y;
 			float32_t m;
 			m = c;
@@ -1818,7 +1820,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_vision_perf_msg.header.stamp = received;
       navdata_vision_perf_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_vision_perf.tag;
 			uint16_t m;
 			m = c;
@@ -1826,7 +1828,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_perf_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_vision_perf.size;
 			uint16_t m;
 			m = c;
@@ -1834,7 +1836,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_perf_msg.size = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision_perf.time_corners;
 			float32_t m;
 			m = c;
@@ -1842,7 +1844,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_perf_msg.time_corners = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision_perf.time_compute;
 			float32_t m;
 			m = c;
@@ -1850,7 +1852,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_perf_msg.time_compute = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision_perf.time_tracking;
 			float32_t m;
 			m = c;
@@ -1858,7 +1860,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_perf_msg.time_tracking = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision_perf.time_trans;
 			float32_t m;
 			m = c;
@@ -1866,7 +1868,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_perf_msg.time_trans = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_vision_perf.time_update;
 			float32_t m;
 			m = c;
@@ -1876,14 +1878,14 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 
 			navdata_vision_perf_msg.time_custom.clear();
 			for(int i=0; i<NAVDATA_MAX_CUSTOM_TIME_SAVE; i++)
-			{				
+			{
 			float32_t c = n.navdata_vision_perf.time_custom[i];
 			float32_t m;
 			m = c;
 
 				navdata_vision_perf_msg.time_custom.push_back(m);
 			}
-			
+
 			pub_navdata_vision_perf.publish(navdata_vision_perf_msg);
 		}
 
@@ -1895,7 +1897,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_trackers_send_msg.header.stamp = received;
       navdata_trackers_send_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_trackers_send.tag;
 			uint16_t m;
 			m = c;
@@ -1903,7 +1905,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_trackers_send_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_trackers_send.size;
 			uint16_t m;
 			m = c;
@@ -1913,17 +1915,17 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 
 			navdata_trackers_send_msg.locked.clear();
 			for(int i=0; i<DEFAULT_NB_TRACKERS_WIDTH * DEFAULT_NB_TRACKERS_HEIGHT; i++)
-			{				
+			{
 			int32_t c = n.navdata_trackers_send.locked[i];
 			int32_t m;
 			m = c;
 
 				navdata_trackers_send_msg.locked.push_back(m);
 			}
-			
+
 			navdata_trackers_send_msg.point.clear();
 			for(int i=0; i<DEFAULT_NB_TRACKERS_WIDTH * DEFAULT_NB_TRACKERS_HEIGHT; i++)
-			{				
+			{
 			screen_point_t c = n.navdata_trackers_send.point[i];
 			ardrone_autonomy::vector21 m;
 			m.x = c.x;
@@ -1931,7 +1933,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 
 				navdata_trackers_send_msg.point.push_back(m);
 			}
-			
+
 			pub_navdata_trackers_send.publish(navdata_trackers_send_msg);
 		}
 
@@ -1943,7 +1945,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_vision_detect_msg.header.stamp = received;
       navdata_vision_detect_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_vision_detect.tag;
 			uint16_t m;
 			m = c;
@@ -1951,7 +1953,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_detect_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_vision_detect.size;
 			uint16_t m;
 			m = c;
@@ -1959,7 +1961,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_vision_detect_msg.size = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_vision_detect.nb_detected;
 			uint32_t m;
 			m = c;
@@ -1969,77 +1971,77 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 
 			navdata_vision_detect_msg.type.clear();
 			for(int i=0; i<NB_NAVDATA_DETECTION_RESULTS; i++)
-			{				
+			{
 			uint32_t c = n.navdata_vision_detect.type[i];
 			uint32_t m;
 			m = c;
 
 				navdata_vision_detect_msg.type.push_back(m);
 			}
-			
+
 			navdata_vision_detect_msg.xc.clear();
 			for(int i=0; i<NB_NAVDATA_DETECTION_RESULTS; i++)
-			{				
+			{
 			uint32_t c = n.navdata_vision_detect.xc[i];
 			uint32_t m;
 			m = c;
 
 				navdata_vision_detect_msg.xc.push_back(m);
 			}
-			
+
 			navdata_vision_detect_msg.yc.clear();
 			for(int i=0; i<NB_NAVDATA_DETECTION_RESULTS; i++)
-			{				
+			{
 			uint32_t c = n.navdata_vision_detect.yc[i];
 			uint32_t m;
 			m = c;
 
 				navdata_vision_detect_msg.yc.push_back(m);
 			}
-			
+
 			navdata_vision_detect_msg.width.clear();
 			for(int i=0; i<NB_NAVDATA_DETECTION_RESULTS; i++)
-			{				
+			{
 			uint32_t c = n.navdata_vision_detect.width[i];
 			uint32_t m;
 			m = c;
 
 				navdata_vision_detect_msg.width.push_back(m);
 			}
-			
+
 			navdata_vision_detect_msg.height.clear();
 			for(int i=0; i<NB_NAVDATA_DETECTION_RESULTS; i++)
-			{				
+			{
 			uint32_t c = n.navdata_vision_detect.height[i];
 			uint32_t m;
 			m = c;
 
 				navdata_vision_detect_msg.height.push_back(m);
 			}
-			
+
 			navdata_vision_detect_msg.dist.clear();
 			for(int i=0; i<NB_NAVDATA_DETECTION_RESULTS; i++)
-			{				
+			{
 			uint32_t c = n.navdata_vision_detect.dist[i];
 			uint32_t m;
 			m = c;
 
 				navdata_vision_detect_msg.dist.push_back(m);
 			}
-			
+
 			navdata_vision_detect_msg.orientation_angle.clear();
 			for(int i=0; i<NB_NAVDATA_DETECTION_RESULTS; i++)
-			{				
+			{
 			float32_t c = n.navdata_vision_detect.orientation_angle[i];
 			float32_t m;
 			m = c;
 
 				navdata_vision_detect_msg.orientation_angle.push_back(m);
 			}
-			
+
 			navdata_vision_detect_msg.rotation.clear();
 			for(int i=0; i<NB_NAVDATA_DETECTION_RESULTS; i++)
-			{				
+			{
 			matrix33_t c = n.navdata_vision_detect.rotation[i];
 			ardrone_autonomy::matrix33 m;
 			m.m11 = c.m11;
@@ -2054,10 +2056,10 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 
 				navdata_vision_detect_msg.rotation.push_back(m);
 			}
-			
+
 			navdata_vision_detect_msg.translation.clear();
 			for(int i=0; i<NB_NAVDATA_DETECTION_RESULTS; i++)
-			{				
+			{
 			vector31_t c = n.navdata_vision_detect.translation[i];
 			ardrone_autonomy::vector31 m;
 			m.x = c.x;
@@ -2066,17 +2068,17 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 
 				navdata_vision_detect_msg.translation.push_back(m);
 			}
-			
+
 			navdata_vision_detect_msg.camera_source.clear();
 			for(int i=0; i<NB_NAVDATA_DETECTION_RESULTS; i++)
-			{				
+			{
 			uint32_t c = n.navdata_vision_detect.camera_source[i];
 			uint32_t m;
 			m = c;
 
 				navdata_vision_detect_msg.camera_source.push_back(m);
 			}
-			
+
 			pub_navdata_vision_detect.publish(navdata_vision_detect_msg);
 		}
 
@@ -2088,7 +2090,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_watchdog_msg.header.stamp = received;
       navdata_watchdog_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_watchdog.tag;
 			uint16_t m;
 			m = c;
@@ -2096,7 +2098,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_watchdog_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_watchdog.size;
 			uint16_t m;
 			m = c;
@@ -2115,7 +2117,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_adc_data_frame_msg.header.stamp = received;
       navdata_adc_data_frame_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_adc_data_frame.tag;
 			uint16_t m;
 			m = c;
@@ -2123,7 +2125,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_adc_data_frame_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_adc_data_frame.size;
 			uint16_t m;
 			m = c;
@@ -2131,7 +2133,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_adc_data_frame_msg.size = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_adc_data_frame.version;
 			uint32_t m;
 			m = c;
@@ -2141,14 +2143,14 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 
 			navdata_adc_data_frame_msg.data_frame.clear();
 			for(int i=0; i<32; i++)
-			{				
+			{
 			uint8_t c = n.navdata_adc_data_frame.data_frame[i];
 			uint8_t m;
 			m = c;
 
 				navdata_adc_data_frame_msg.data_frame.push_back(m);
 			}
-			
+
 			pub_navdata_adc_data_frame.publish(navdata_adc_data_frame_msg);
 		}
 
@@ -2160,7 +2162,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_video_stream_msg.header.stamp = received;
       navdata_video_stream_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_video_stream.tag;
 			uint16_t m;
 			m = c;
@@ -2168,7 +2170,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_video_stream.size;
 			uint16_t m;
 			m = c;
@@ -2176,7 +2178,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.size = m;
 			}
 
-			{				
+			{
 			uint8_t c = n.navdata_video_stream.quant;
 			uint8_t m;
 			m = c;
@@ -2184,7 +2186,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.quant = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_video_stream.frame_size;
 			uint32_t m;
 			m = c;
@@ -2192,7 +2194,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.frame_size = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_video_stream.frame_number;
 			uint32_t m;
 			m = c;
@@ -2200,7 +2202,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.frame_number = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_video_stream.atcmd_ref_seq;
 			uint32_t m;
 			m = c;
@@ -2208,7 +2210,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.atcmd_ref_seq = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_video_stream.atcmd_mean_ref_gap;
 			uint32_t m;
 			m = c;
@@ -2216,7 +2218,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.atcmd_mean_ref_gap = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_video_stream.atcmd_var_ref_gap;
 			float32_t m;
 			m = c;
@@ -2224,7 +2226,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.atcmd_var_ref_gap = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_video_stream.atcmd_ref_quality;
 			uint32_t m;
 			m = c;
@@ -2232,7 +2234,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.atcmd_ref_quality = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_video_stream.desired_bitrate;
 			uint32_t m;
 			m = c;
@@ -2240,7 +2242,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.desired_bitrate = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_video_stream.data2;
 			int32_t m;
 			m = c;
@@ -2248,7 +2250,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.data2 = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_video_stream.data3;
 			int32_t m;
 			m = c;
@@ -2256,7 +2258,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.data3 = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_video_stream.data4;
 			int32_t m;
 			m = c;
@@ -2264,7 +2266,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.data4 = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_video_stream.data5;
 			int32_t m;
 			m = c;
@@ -2272,7 +2274,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_video_stream_msg.data5 = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_video_stream.fifo_queue_level;
 			uint32_t m;
 			m = c;
@@ -2291,7 +2293,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_games_msg.header.stamp = received;
       navdata_games_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_games.tag;
 			uint16_t m;
 			m = c;
@@ -2299,7 +2301,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_games_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_games.size;
 			uint16_t m;
 			m = c;
@@ -2307,7 +2309,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_games_msg.size = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_games.double_tap_counter;
 			uint32_t m;
 			m = c;
@@ -2315,7 +2317,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_games_msg.double_tap_counter = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_games.finish_line_counter;
 			uint32_t m;
 			m = c;
@@ -2334,7 +2336,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_pressure_raw_msg.header.stamp = received;
       navdata_pressure_raw_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_pressure_raw.tag;
 			uint16_t m;
 			m = c;
@@ -2342,7 +2344,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pressure_raw_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_pressure_raw.size;
 			uint16_t m;
 			m = c;
@@ -2350,7 +2352,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pressure_raw_msg.size = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_pressure_raw.up;
 			int32_t m;
 			m = c;
@@ -2358,7 +2360,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pressure_raw_msg.up = m;
 			}
 
-			{				
+			{
 			int16_t c = n.navdata_pressure_raw.ut;
 			int16_t m;
 			m = c;
@@ -2366,7 +2368,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pressure_raw_msg.ut = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_pressure_raw.Temperature_meas;
 			int32_t m;
 			m = c;
@@ -2374,7 +2376,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_pressure_raw_msg.Temperature_meas = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_pressure_raw.Pression_meas;
 			int32_t m;
 			m = c;
@@ -2393,7 +2395,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_magneto_msg.header.stamp = received;
       navdata_magneto_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_magneto.tag;
 			uint16_t m;
 			m = c;
@@ -2401,7 +2403,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_magneto.size;
 			uint16_t m;
 			m = c;
@@ -2409,7 +2411,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.size = m;
 			}
 
-			{				
+			{
 			int16_t c = n.navdata_magneto.mx;
 			int16_t m;
 			m = c;
@@ -2417,7 +2419,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.mx = m;
 			}
 
-			{				
+			{
 			int16_t c = n.navdata_magneto.my;
 			int16_t m;
 			m = c;
@@ -2425,7 +2427,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.my = m;
 			}
 
-			{				
+			{
 			int16_t c = n.navdata_magneto.mz;
 			int16_t m;
 			m = c;
@@ -2433,7 +2435,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.mz = m;
 			}
 
-			{				
+			{
 			vector31_t c = n.navdata_magneto.magneto_raw;
 			ardrone_autonomy::vector31 m;
 			m.x = c.x;
@@ -2443,7 +2445,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.magneto_raw = m;
 			}
 
-			{				
+			{
 			vector31_t c = n.navdata_magneto.magneto_rectified;
 			ardrone_autonomy::vector31 m;
 			m.x = c.x;
@@ -2453,7 +2455,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.magneto_rectified = m;
 			}
 
-			{				
+			{
 			vector31_t c = n.navdata_magneto.magneto_offset;
 			ardrone_autonomy::vector31 m;
 			m.x = c.x;
@@ -2463,7 +2465,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.magneto_offset = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_magneto.heading_unwrapped;
 			float32_t m;
 			m = c;
@@ -2471,7 +2473,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.heading_unwrapped = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_magneto.heading_gyro_unwrapped;
 			float32_t m;
 			m = c;
@@ -2479,7 +2481,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.heading_gyro_unwrapped = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_magneto.heading_fusion_unwrapped;
 			float32_t m;
 			m = c;
@@ -2487,7 +2489,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.heading_fusion_unwrapped = m;
 			}
 
-			{				
+			{
 			char c = n.navdata_magneto.magneto_calibration_ok;
 			char m;
 			m = c;
@@ -2495,7 +2497,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.magneto_calibration_ok = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_magneto.magneto_state;
 			uint32_t m;
 			m = c;
@@ -2503,7 +2505,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.magneto_state = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_magneto.magneto_radius;
 			float32_t m;
 			m = c;
@@ -2511,7 +2513,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.magneto_radius = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_magneto.error_mean;
 			float32_t m;
 			m = c;
@@ -2519,7 +2521,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_magneto_msg.error_mean = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_magneto.error_var;
 			float32_t m;
 			m = c;
@@ -2538,7 +2540,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_wind_speed_msg.header.stamp = received;
       navdata_wind_speed_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_wind_speed.tag;
 			uint16_t m;
 			m = c;
@@ -2546,7 +2548,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_wind_speed.size;
 			uint16_t m;
 			m = c;
@@ -2554,7 +2556,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.size = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.wind_speed;
 			float32_t m;
 			m = c;
@@ -2562,7 +2564,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.wind_speed = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.wind_angle;
 			float32_t m;
 			m = c;
@@ -2570,7 +2572,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.wind_angle = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.wind_compensation_theta;
 			float32_t m;
 			m = c;
@@ -2578,7 +2580,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.wind_compensation_theta = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.wind_compensation_phi;
 			float32_t m;
 			m = c;
@@ -2586,7 +2588,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.wind_compensation_phi = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.state_x1;
 			float32_t m;
 			m = c;
@@ -2594,7 +2596,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.state_x1 = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.state_x2;
 			float32_t m;
 			m = c;
@@ -2602,7 +2604,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.state_x2 = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.state_x3;
 			float32_t m;
 			m = c;
@@ -2610,7 +2612,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.state_x3 = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.state_x4;
 			float32_t m;
 			m = c;
@@ -2618,7 +2620,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.state_x4 = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.state_x5;
 			float32_t m;
 			m = c;
@@ -2626,7 +2628,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.state_x5 = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.state_x6;
 			float32_t m;
 			m = c;
@@ -2634,7 +2636,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.state_x6 = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.magneto_debug1;
 			float32_t m;
 			m = c;
@@ -2642,7 +2644,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.magneto_debug1 = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.magneto_debug2;
 			float32_t m;
 			m = c;
@@ -2650,7 +2652,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wind_speed_msg.magneto_debug2 = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_wind_speed.magneto_debug3;
 			float32_t m;
 			m = c;
@@ -2669,7 +2671,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_kalman_pressure_msg.header.stamp = received;
       navdata_kalman_pressure_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_kalman_pressure.tag;
 			uint16_t m;
 			m = c;
@@ -2677,7 +2679,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_kalman_pressure.size;
 			uint16_t m;
 			m = c;
@@ -2685,7 +2687,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.size = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.offset_pressure;
 			float32_t m;
 			m = c;
@@ -2693,7 +2695,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.offset_pressure = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.est_z;
 			float32_t m;
 			m = c;
@@ -2701,7 +2703,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.est_z = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.est_zdot;
 			float32_t m;
 			m = c;
@@ -2709,7 +2711,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.est_zdot = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.est_bias_PWM;
 			float32_t m;
 			m = c;
@@ -2717,7 +2719,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.est_bias_PWM = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.est_biais_pression;
 			float32_t m;
 			m = c;
@@ -2725,7 +2727,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.est_biais_pression = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.offset_US;
 			float32_t m;
 			m = c;
@@ -2733,7 +2735,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.offset_US = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.prediction_US;
 			float32_t m;
 			m = c;
@@ -2741,7 +2743,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.prediction_US = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.cov_alt;
 			float32_t m;
 			m = c;
@@ -2749,7 +2751,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.cov_alt = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.cov_PWM;
 			float32_t m;
 			m = c;
@@ -2757,7 +2759,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.cov_PWM = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.cov_vitesse;
 			float32_t m;
 			m = c;
@@ -2765,7 +2767,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.cov_vitesse = m;
 			}
 
-			{				
+			{
 			bool_t c = n.navdata_kalman_pressure.bool_effet_sol;
 			bool_t m;
 			m = c;
@@ -2773,7 +2775,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.bool_effet_sol = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.somme_inno;
 			float32_t m;
 			m = c;
@@ -2781,7 +2783,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.somme_inno = m;
 			}
 
-			{				
+			{
 			bool_t c = n.navdata_kalman_pressure.flag_rejet_US;
 			bool_t m;
 			m = c;
@@ -2789,7 +2791,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.flag_rejet_US = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.u_multisinus;
 			float32_t m;
 			m = c;
@@ -2797,7 +2799,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.u_multisinus = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_kalman_pressure.gaz_altitude;
 			float32_t m;
 			m = c;
@@ -2805,7 +2807,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.gaz_altitude = m;
 			}
 
-			{				
+			{
 			bool_t c = n.navdata_kalman_pressure.Flag_multisinus;
 			bool_t m;
 			m = c;
@@ -2813,7 +2815,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_kalman_pressure_msg.Flag_multisinus = m;
 			}
 
-			{				
+			{
 			bool_t c = n.navdata_kalman_pressure.Flag_multisinus_debut;
 			bool_t m;
 			m = c;
@@ -2832,7 +2834,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_hdvideo_stream_msg.header.stamp = received;
       navdata_hdvideo_stream_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_hdvideo_stream.tag;
 			uint16_t m;
 			m = c;
@@ -2840,7 +2842,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_hdvideo_stream_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_hdvideo_stream.size;
 			uint16_t m;
 			m = c;
@@ -2848,7 +2850,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_hdvideo_stream_msg.size = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_hdvideo_stream.hdvideo_state;
 			uint32_t m;
 			m = c;
@@ -2856,7 +2858,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_hdvideo_stream_msg.hdvideo_state = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_hdvideo_stream.storage_fifo_nb_packets;
 			uint32_t m;
 			m = c;
@@ -2864,7 +2866,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_hdvideo_stream_msg.storage_fifo_nb_packets = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_hdvideo_stream.storage_fifo_size;
 			uint32_t m;
 			m = c;
@@ -2872,7 +2874,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_hdvideo_stream_msg.storage_fifo_size = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_hdvideo_stream.usbkey_size;
 			uint32_t m;
 			m = c;
@@ -2880,7 +2882,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_hdvideo_stream_msg.usbkey_size = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_hdvideo_stream.usbkey_freespace;
 			uint32_t m;
 			m = c;
@@ -2888,7 +2890,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_hdvideo_stream_msg.usbkey_freespace = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_hdvideo_stream.frame_number;
 			uint32_t m;
 			m = c;
@@ -2896,7 +2898,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_hdvideo_stream_msg.frame_number = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_hdvideo_stream.usbkey_remaining_time;
 			uint32_t m;
 			m = c;
@@ -2915,7 +2917,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_wifi_msg.header.stamp = received;
       navdata_wifi_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_wifi.tag;
 			uint16_t m;
 			m = c;
@@ -2923,7 +2925,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wifi_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_wifi.size;
 			uint16_t m;
 			m = c;
@@ -2931,7 +2933,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_wifi_msg.size = m;
 			}
 
-			{				
+			{
 			uint32_t c = n.navdata_wifi.link_quality;
 			uint32_t m;
 			m = c;
@@ -2950,7 +2952,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 			navdata_zimmu_3000_msg.header.stamp = received;
       navdata_zimmu_3000_msg.header.frame_id = drone_frame_base;
 
-			{				
+			{
 			uint16_t c = n.navdata_zimmu_3000.tag;
 			uint16_t m;
 			m = c;
@@ -2958,7 +2960,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_zimmu_3000_msg.tag = m;
 			}
 
-			{				
+			{
 			uint16_t c = n.navdata_zimmu_3000.size;
 			uint16_t m;
 			m = c;
@@ -2966,7 +2968,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_zimmu_3000_msg.size = m;
 			}
 
-			{				
+			{
 			int32_t c = n.navdata_zimmu_3000.vzimmuLSB;
 			int32_t m;
 			m = c;
@@ -2974,7 +2976,7 @@ void ARDroneDriver::PublishNavdataTypes(const navdata_unpacked_t &n, const ros::
 				navdata_zimmu_3000_msg.vzimmuLSB = m;
 			}
 
-			{				
+			{
 			float32_t c = n.navdata_zimmu_3000.vzfind;
 			float32_t m;
 			m = c;
